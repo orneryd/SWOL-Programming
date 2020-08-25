@@ -97,13 +97,13 @@ Array.map.
 
 You could very easily implement it in a way such as this:
 
-Array.prototype.map = function(transform) {\
+```Array.prototype.map = function(transform) {\
 const newArr = \[\];\
 for (var i = 0; i \< this.length; i++) {\
 newArr.push(transform(this\[i\], i));\
 }\
 return newArr;\
-}
+}```
 
 ***But is it SWOL?***
 
@@ -112,7 +112,7 @@ What if you wanted to 
 **What if we took a different approach? Let\'s break down what we are
 doing:**
 
-Array.prototype.map = (transform) =\> {
+```Array.prototype.map = (transform) =\> {
 
 **// We need to create a new array**
 
@@ -131,10 +131,10 @@ newArr.push(transform(this\[i\], i));\
 
 return newArr;\
 }
-
+```
 What if we isolated the iteration part into its own method?
 -----------------------------------------------------------
-
+```
 // Now we have an iterator we can us for map.\
 Array.prototype.forEach = function(callback) {\
 for (var i = 0; i \< this.length; i++) {\
@@ -152,6 +152,6 @@ Array.prototype.reduce = function(reducer, accumulator) {\
 this.forEach((e, i) =\> (accumulator = reducer(accumulator, e, i)));\
 return accumulator;\
 };
-
+```
 Now your code is SWOL. 
 =======================
