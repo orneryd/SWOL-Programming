@@ -109,9 +109,8 @@ Array.prototype.map = function(transform) {
 
 ***But is it SWOL?***
 
-What if you wanted to 
 
-**What if we took a different approach? Let\'s break down what we are
+**Consider a different approach. Let\'s break down what we are
 doing:**
 
 ```javascript
