@@ -1,18 +1,5 @@
 SWOL Programming
 
-McKesson Labs Scottsdale
-
-Exported on Aug 25, 2020
-
-Table of Contents {#table-of-contents .TOC-Heading}
-=================
-
-1 What is SWOL? 3
-
-1.1 What if we isolated the iteration part into its own method? 4
-
-2 Now your code is SWOL. 6
-
 What is SWOL?
 =============
 
