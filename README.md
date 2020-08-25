@@ -157,3 +157,67 @@ this.forEach((e, i) => (accumulator = reducer(accumulator, e, i)));
 ```
 Now your code is SWOL. 
 =======================
+
+# Is your code LIT, BRO?
+
+**L**earn
+
+**I**n**T**ent
+
+**B**efore
+
+**R**enaming
+
+**O**bjects.
+
+## Consider the following Java Code: 
+
+```java
+if(address.isAny()) {
+
+//...
+
+} else if(isAddrInAzure(address, azureRanges)) {
+
+//...
+
+} else if(isAddrRfc1918(address)){
+
+//...
+
+}*else {
+
+//...
+
+}
+```
+My first thought when looking at this, not having any domain knowledge
+of panorama, or the library we wrote, was \"How are we hitting any other
+cases?\" \"isAny\" has major implications for the logic behind it. I, as
+a reviewer or maintainer, shouldn\'t have to understand the
+implementation of a generically defined method to be effective.
+
+My suggestion here would be to make sure we name functions what the
+intent is.
+
+<https://medium.com/@rabinovichsagi/effectively-naming-software-thingies-fcea9d78a699>
+
+\> Select Intent Revealing Names. Code as explicit as possible. If the
+variable stores the last updated record, name it lastUpdatedRecord, not
+just record, or even lastRecord (The last record in a file??).\
+\> Make Meaningful distinctions. Don't distinguish between similar names
+by misspelling or suffixing with numbers and noise words, just to
+satisfy the compiler. This is Non-informative. For example, ProductInfo
+vs ProductData What kind of info the ProductInfo has that the
+ProductData doesn\'t.
+
+Domain objects can be tricky. In most cases, it\'s preferable to match
+things directly so that you don\'t have to make a translation between
+contexts. However, when you have a service that uses extremely generic
+terms to describe its data, it can be tempting to just match that for
+consistency. In these cases, I would propose we don\'t. Where external
+systems don\'t do the right thing, we should name them prefixed with the
+context. in this case, \"PanoramaAddress\" would be a perfectly
+acceptable name even if the package namespace already contains
+\"Panorama.\"
+
