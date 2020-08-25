@@ -97,13 +97,15 @@ Array.map.
 
 You could very easily implement it in a way such as this:
 
-```Array.prototype.map = function(transform) {
+```javascript
+Array.prototype.map = function(transform) {
   const newArr = \[\];\
   for (var i = 0; i \< this.length; i++) {
     newArr.push(transform(this\[i\], i));\
   }
   return newArr;
-}```
+}
+```
 
 ***But is it SWOL?***
 
@@ -112,7 +114,8 @@ What if you wanted to 
 **What if we took a different approach? Let\'s break down what we are
 doing:**
 
-```Array.prototype.map = (transform) => {
+```javascript
+Array.prototype.map = (transform) => {
 
 **// We need to create a new array**
 
@@ -134,7 +137,7 @@ doing:**
 ```
 What if we isolated the iteration part into its own method?
 -----------------------------------------------------------
-```
+```javascript
 // Now we have an iterator we can us for map.
 Array.prototype.forEach = function(callback) {
   for (var i = 0; i < this.length; i++) {
