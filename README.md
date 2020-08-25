@@ -8,8 +8,6 @@ off the terminology for the Unit of Work and Repository patterns. It
 describes how to think about problems in terms of isolated work and
 contracts or interfaces.
 
-*\
-*
 
 *The Problem*
 
@@ -24,8 +22,6 @@ nothing wrong with this. you achieve your goal, you now have a
 limited-use robot, and everyone is happy. But, what if you took a
 different approach?
 
-*\
-*
 
 *Simplify It*
 
