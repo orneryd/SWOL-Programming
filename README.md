@@ -97,12 +97,12 @@ Array.map.
 
 You could very easily implement it in a way such as this:
 
-```Array.prototype.map = function(transform) {\
+```Array.prototype.map = function(transform) {
 const newArr = \[\];\
-for (var i = 0; i \< this.length; i++) {\
+for (var i = 0; i \< this.length; i++) {
 newArr.push(transform(this\[i\], i));\
-}\
-return newArr;\
+}
+return newArr;
 }```
 
 ***But is it SWOL?***
@@ -112,45 +112,45 @@ What if you wanted to 
 **What if we took a different approach? Let\'s break down what we are
 doing:**
 
-```Array.prototype.map = (transform) =\> {
+```Array.prototype.map = (transform) => {
 
 **// We need to create a new array**
 
-const newArr = \[\];
+const newArr = [];
 
 **// We need to iterate over our existing list**
 
-for (var i = 0; i \< this.length; i++) {
+for (var i = 0; i < this.length; i++) {
 
 **// we need to execute a method for every item in our list.**
 
-newArr.push(transform(this\[i\], i));\
+newArr.push(transform(this[i], i));
 }
 
 **// We need to return the new array reference to the caller.**
 
-return newArr;\
+return newArr;
 }
 ```
 What if we isolated the iteration part into its own method?
 -----------------------------------------------------------
 ```
-// Now we have an iterator we can us for map.\
-Array.prototype.forEach = function(callback) {\
-for (var i = 0; i \< this.length; i++) {\
-callback(this\[i\], i);\
-}\
-};\
-\
-Array.prototype.map = function(transform) {\
-let newArr = \[\];\
-this.forEach((e, i) =\> newArr.push(transform(e, i)));\
-}\
-\
-// now we can use our iterator to implement reduce\
-Array.prototype.reduce = function(reducer, accumulator) {\
-this.forEach((e, i) =\> (accumulator = reducer(accumulator, e, i)));\
-return accumulator;\
+// Now we have an iterator we can us for map.
+Array.prototype.forEach = function(callback) {
+for (var i = 0; i < this.length; i++) {
+callback(this[i], i);\
+}
+};
+
+Array.prototype.map = function(transform) {
+let newArr = [];
+this.forEach((e, i) => newArr.push(transform(e, i)));
+}
+
+// now we can use our iterator to implement reduce
+Array.prototype.reduce = function(reducer, accumulator) {
+this.forEach((e, i) => (accumulator = reducer(accumulator, e, i)));
+return accumulator;
 };
 ```
 Now your code is SWOL. 
